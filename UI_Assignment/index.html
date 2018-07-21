@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<link rel="stylesheet" href="ref/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<style>
+body
+{
+   background:#fff;
+}
+.navbar
+{
+	background-color:#843e05 !important;
+	border-radius:0px;
+	margin-bottom:0px;
+	text-transform:uppercase;
+	font-weight:700;
+	min-height:73px;
+}
+.navbar-brand h1
+{
+   color:#95d9fd;
+   font-weight:700;
+}
+#title
+{
+  margin:auto;
+}
+.navbar h4
+{
+   text-transform:capitalize;
+   margin:auto;
+   font-weight:550;
+   color:#fff;
+}
+#myNav ul li
+{
+  float:left;
+  margin-top:20px;
+  padding:7px 10px;
+  list-style-type:none;
+  font-weight:400;
+  text-transform:capitalize;
+   color:#fff;
+   text-decoration:none;
+   opacity:0.8;
+}
+#myNav ul li:hover
+{
+   background-color:#d1d1d1;
+   color:#000;
+   text-decoration:none;
+}
+
+.navbar p
+{
+   text-transform:capitalize;
+   font-weight:normal;
+   color:#ddd;
+}
+
+#content
+{
+    margin:20px auto 182px; 
+    text-align:center;
+}
+
+table
+{
+   margin:60px auto;
+}
+table i
+{
+   padding:3px;
+}
+@media screen and (max-width:576px)
+{
+   #new
+   {
+      margin:auto;
+      text-align:center;
+   }
+}
+#myFooter
+{
+   position:relative;
+   bottom:0px;
+   width:100%;
+   height:60px;
+   background:#242424;
+   color:#fff;
+   text-align:center;
+}
+
+#myFooter a
+{
+  text-decoration:none;
+  color:#fff;
+}
+
+#myFooter i
+{
+  // font-size:20px;
+   height:40px;
+   width:40px;
+   text-align:center;
+   padding:12px;
+   background-color:#c10000;
+   border-radius:50%;
+   margin:10px auto;
+}
+</style>
+</head>
+<body>
+
+<div id="myNavbar" class="navbar navbar-default navbar-fixed-top">
+<div class="container">
+<div class="row">
+<div class="navbar-header">
+<div class="navbar-brand">
+<h1>Logo</h1>
+</div>
+</div>
+<div id="title">
+<h4>Web Templates</h4>
+<p>Awesome collection are here!</p>
+</div>
+
+<nav id="myNav">
+<ul>
+<a href="#"><li class="nav-item">About</li></a>
+<a href="#"><li class="nav-item">User</li></a>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
+
+<div id="content">
+<div class="container">
+<div class="row">
+<table id="tableData" class="table table-striped table-responsive">
+<tr>
+<th>Design No.</th>
+<th>Description</th>
+<th>Performance Data</th>
+<th>Price USD</th>
+<th>Actions</th>
+</tr>
+<tr>
+<td contenteditable="false">1101</td>
+<td contenteditable="false">Web Template for Restaurant</td>
+<td contenteditable="false">Performance Data</td>
+<td contenteditable="false">$200</td>
+<td><i class="fas fa-edit edit"></i>
+<i class="fas fa-save save"></i>
+<i class="fas fa-trash delete"></i>
+</td>
+</tr>
+<tr>
+<td contenteditable="false">1102</td>
+<td contenteditable="false">Web Template for Hospital</td>
+<td contenteditable="false">Performance Data</td>
+<td contenteditable="false">$250</td>
+<td><i class="fas fa-edit edit"></i>
+<i class="fas fa-save save"></i>
+<i class="fas fa-trash delete"></i>
+</td>
+</tr>
+<tr>
+<td contenteditable="false">1103</td>
+<td contenteditable="false">Web Template for Shop</td>
+<td contenteditable="false">Performance Data</td>
+<td contenteditable="false">$100</td>
+<td><i class="fas fa-edit edit"></i>
+<i class="fas fa-save save"></i>
+<i class="fas fa-trash delete"></i>
+</td>
+</tr>
+</table>
+<button id="new" class="btn btn-success">New Design</button>
+</div>
+</div>
+</div>
+
+<div id="myFooter" class="footer">
+<div class="container">
+<div class="row">
+<div class="col text-center">
+<a href="#"><i class="social fab fa-facebook-f" aria-hidden="true"></i></a>
+<a href="#"><i class="social fab fa-twitter" aria-hidden="true"></i></a>
+<a href="#"><i class="social fab fa-linkedin" aria-hidden="true"></i></a>
+<a href="#"><i class="social fab fa-pinterest" aria-hidden="true"></i></a>
+<a href="#"><i class="social fab fa-youtube" aria-hidden="true"></i></a>
+<a href="#"><i class="social fab fa-github" aria-hidden="true"></i></a>
+</div>
+</div>
+</div>
+</div>
+
+<script src="ref/jquery.min.js"></script>
+<script src="ref/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+  $(document).on('click', '.edit', function()
+  {
+      var TD=$(this).parents('tr').find("td[contenteditable=false]");
+      $.each(TD,function()
+      {
+         $(this).prop('contenteditable',true);
+      });
+   });
+
+   $(document).on('click', '.save', function()
+   {
+      var TD=$(this).parents('tr').find("td[contenteditable=true]");
+      $.each(TD,function()
+      {
+         $(this).prop('contenteditable',false);
+      });
+   });
+  
+   $(document).on('click', '.delete', function()
+   {
+       $(this).parents('tr').remove();
+   });
+
+   $(document).on('click', '#new', function()
+   {
+      $("#tableData").append("<tr><td contenteditable='false'></td><td contenteditable='false'></td><td contenteditable='false'></td><td contenteditable='false'></td><td><i class='fas fa-edit edit'></i><i class='fas fa-save save'></i><i class='fas fa-trash delete'></i></td></tr>");
+   });
+});
+</script>
+</body>
+</html>
